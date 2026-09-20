@@ -92,7 +92,7 @@ public class Program
         string? dayInput)
     {
         if (string.IsNullOrWhiteSpace(priceInput) ||
-            !decimal.TryParse(priceInput, NumberStyles.Number, CultureInfo.InvariantCulture, out decimal basePrice))
+            !decimal.TryParse(priceInput, CultureInfo.InvariantCulture, out decimal basePrice))
         {
             Console.WriteLine("Error: Base price must be a valid decimal number.");
             return;
