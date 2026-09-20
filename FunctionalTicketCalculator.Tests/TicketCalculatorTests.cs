@@ -35,18 +35,16 @@ public class TicketCalculatorTests
     [Fact]
     public void RulePriority_StudentTakesPrecedenceOverSenior()
     {
-        // Student rule comes before Senior (60+) in the rules order:
-        // 5000 * 0.85 = 4250.00 (not 5000 * 0.70 = 3500.00)
         decimal result = Program.CalculateFinalPrice(5000, 65, true, TicketType.Standard, DayType.Weekday);
         Assert.Equal(4250.00m, result);
     }
 
     [Theory]
-    [InlineData(6, 2500.00)]  // boundary child 6
-    [InlineData(12, 2500.00)] // boundary child 12
-    [InlineData(13, 5000.00)] // regular adult without student status
-    [InlineData(59, 5000.00)] // regular adult before senior
-    [InlineData(60, 3500.00)] // senior boundary
+    [InlineData(6, 2500.00)]
+    [InlineData(12, 2500.00)]
+    [InlineData(13, 5000.00)]
+    [InlineData(59, 5000.00)]
+    [InlineData(60, 3500.00)]
     public void CategoryAgeBoundaries_CalculateExpectedDiscount(int age, decimal expected)
     {
         decimal result = Program.CalculateFinalPrice(5000, age, false, TicketType.Standard, DayType.Weekday);
