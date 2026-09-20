@@ -1,0 +1,14 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# IDE and tooling
+.vs/
+.vscode/
+.idea/
+*.user
+*.userosscache
+*.suo
+
+# Archives
+*.zip
